@@ -6,3 +6,5 @@ Validimir Dementyev's robust Docker/DockerCompose solution for Rails development
 * [Vladimir's Article](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
 * [Vladimir's Repository "Terraforming Rails"](https://github.com/evilmartians/terraforming-rails)
 
+## TODO
+ * Try on Windows 10 (this was tried first on MacOS)
