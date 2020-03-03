@@ -6,12 +6,12 @@ services:
       context: .
       dockerfile: ./.dockerdev/Dockerfile
       args:
-        RUBY_VERSION: '2.6.3'
+        RUBY_VERSION: '2.6.4'
         PG_MAJOR: '11'
-        NODE_MAJOR: '11'
+        NODE_MAJOR: '13'
         YARN_VERSION: '1.13.0'
-        BUNDLER_VERSION: '2.0.2'
-    image: aventine-ruby-dev:1.0.0
+        BUNDLER_VERSION: '2.1.4'
+    image: aventine-ruby-dev:1.0.1
     tmpfs:
       - /tmp
 
@@ -20,7 +20,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/app:cached
+      - .:/app
       - rails_cache:/app/tmp/cache
       - bundle:/bundle
       - node_modules:/app/node_modules
@@ -59,18 +59,18 @@ services:
     command: bundle exec sidekiq -C config/sidekiq.yml
 
   postgres:
-    image: postgres:11.1
+    image: postgres:11
     volumes:
       - .psqlrc:/root/.psqlrc:ro
       - postgres:/var/lib/postgresql/data
-      - ./log:/root/log:cached
+      - ./log:/root/log
     environment:
       - PSQL_HISTFILE=/root/log/.psql_history
     ports:
       - 5432
 
   redis:
-    image: redis:3.2-alpine
+    image: redis:6.0-rc1-buster
     volumes:
       - redis:/data
     ports:
@@ -82,7 +82,7 @@ services:
     ports:
       - '3035:3035'
     volumes:
-      - .:/app:cached
+      - .:/app
       - bundle:/bundle
       - node_modules:/app/node_modules
       - packs:/app/public/packs
