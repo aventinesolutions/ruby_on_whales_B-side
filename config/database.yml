@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  url: postgres://postgres:postgres@postgres:5432
+
+development:
+  <<: *default
+  database: ruby_on_whales_development
+
+test:
+  <<: *default
+  database: ruby_on_whales_test
+
+production:
+  <<: *default
+  database: ruby_on_whales_production
