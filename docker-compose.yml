@@ -9,7 +9,7 @@ services:
         RUBY_VERSION: '2.6.4'
         PG_MAJOR: '11'
         NODE_MAJOR: '13'
-        YARN_VERSION: '1.13.0'
+        YARN_VERSION: '1.22.0'
         BUNDLER_VERSION: '2.1.4'
     image: aventine-ruby-dev:1.0.1
     tmpfs:
