@@ -40,6 +40,7 @@ group :test do
   gem 'webdrivers'
   gem 'shoulda-matchers', '~> 4.3'
   gem 'rspec-its', '~> 1.3'
+  gem 'rails-controller-testing', '~> 1.0'
 end
 
 group :development, :test do
