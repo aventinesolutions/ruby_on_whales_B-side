@@ -7,6 +7,7 @@ require 'rspec/its'
 require 'shoulda-matchers'
 require 'factory_bot_rails'
 require 'rails-controller-testing'
+require 'capybara/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
