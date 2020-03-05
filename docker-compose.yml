@@ -50,9 +50,9 @@ services:
 
   rails:
     <<: *backend
-    command: bundle exec rails server -b 0.0.0.0
+    command: bundle exec rails server -b 0.0.0.0 --port 3001
     ports:
-      - '3000:3000'
+      - '3001:3001'
 
   sidekiq:
     <<: *backend
@@ -68,7 +68,7 @@ services:
       - PSQL_HISTFILE=/root/log/.psql_history
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
-      - '5432:5432'
+      - 5432:5432
 
   redis:
     image: redis:6.0-rc1-buster
