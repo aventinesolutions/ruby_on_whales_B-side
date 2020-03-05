@@ -9,6 +9,12 @@ Validimir Dementyev's robust Docker/DockerCompose solution for Rails development
 ## Prerequisite
 * Docker Desktop for Windows or Macintosh
 
+## Ruby Version
+2.6.4
+
+## Rails Version
+6.0.2
+
 ## Running the system and managing containers
 
 Bring up the system
@@ -17,7 +23,7 @@ Bring up the system
 ```
 Stopping container processes
 ```shell
-% docker-compose kill
+% docker-compose stop
 ```
 Stopping and removing containers
 ```shell
@@ -28,25 +34,16 @@ Running database tasks with `rake`
 % docker exec -it ruby_on_whales_b-side_rails_1 bundle exec rake --trace db:migrate
 ```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Testing
+Testing is done with RSpec
+```shell
+% docker-compose run runner bundle exec rspec
+```
+Factories are found in `./spec/factories`.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Linting
+Linting is done with Rubocop :cop:
+```shell
+% docker-compose run runner bundle exec rubocop
+```
+TODO's are found in `./.rubocop_todo.yml`.
