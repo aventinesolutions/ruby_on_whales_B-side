@@ -37,6 +37,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'shoulda-matchers', '~> 4.3'
+  gem 'rspec-its', '~> 1.3'
 end
 
 group :development, :test do
