@@ -1,2 +1,9 @@
 inherit_from: .rubocop_todo.yml
 require: rubocop-rails
+
+Metrics/LineLength:
+  Max: 120
+
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb

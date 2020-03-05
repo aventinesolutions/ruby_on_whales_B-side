@@ -1,0 +1,7 @@
+<h1>Ruby on Whales B-Side</h1>
+<% if current_account %>
+  <%= link_to "Sign Out", destroy_account_session_path, method: :delete %>
+  <h2>Hello <code><%= current_account.email %></code></h2>
+<% else %>
+  <%= link_to "Sign In", new_account_session_path %>
+<% end %>
