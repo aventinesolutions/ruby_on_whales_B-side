@@ -1,12 +1,31 @@
 inherit_from: .rubocop_todo.yml
 require: rubocop-rails
 
-Metrics/LineLength:
-  Max: 120
-
 Layout/LineLength:
+  Max: 120
   Exclude:
     - config/initializers/devise.rb
 
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*.rb
+
 Style/SymbolArray:
   EnforcedStyle: percent
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+

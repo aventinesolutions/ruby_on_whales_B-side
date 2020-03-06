@@ -25,6 +25,7 @@ services:
       - bundle:/bundle
       - node_modules:/app/node_modules
       - packs:/app/public/packs
+      - storage:/app/storage
       - .dockerdev/.psqlrc:/root/.psqlrc:ro
     environment:
       - NODE_ENV=development
@@ -99,3 +100,4 @@ volumes:
   node_modules:
   rails_cache:
   packs:
+  storage:
