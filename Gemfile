@@ -18,6 +18,7 @@ gem 'sidekiq', '~> 6.0'
 gem 'devise', '~> 4.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'seed-fu', '~> 2.3'
+gem 'activestorage-backblaze', '0.0.5'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
