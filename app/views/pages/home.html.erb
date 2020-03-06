@@ -8,8 +8,7 @@
         <%= whiskey.description %>
         <em>Price: €<%= whiskey.price %></em>
         <% if whiskey.photo.attached? %>
-          <code><%= url_for(whiskey.photo) %></code>
-          <%= image_tag(whiskey.photo) %>
+           <%= image_tag(whiskey.photo) %>
         <% end %>
       </li>
     <% end %>
