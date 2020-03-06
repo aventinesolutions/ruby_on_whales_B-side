@@ -30,6 +30,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails', '~> 2.4'
   gem 'better_errors', '~> 2.6'
+  gem 'graphiql-rails', '~> 1.7'
 end
 
 group :test do
