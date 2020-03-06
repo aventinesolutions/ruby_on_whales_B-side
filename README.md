@@ -11,8 +11,16 @@ Validimir Dementyev's robust Docker/DockerCompose solution for Rails development
 * [Vladimir's Article](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
 * [Vladimir's Repository "Terraforming Rails"](https://github.com/evilmartians/terraforming-rails)
 
-## Prerequisite
-* Docker Desktop for Windows or Macintosh
+## Why Docker for Developement?
+* Guarantees to work cross platform
+* Development could be set up in the Cloud (in the future).
+
+## Prerequisites
+* Windows 10: Docker Desktop for Windows
+* MacOS: Docker Desktop for Mac
+* Linux: install `docker` amd `docker-compose` via the package distribution
+
+Dockers are Linux images (not Windows).
 
 ## Ruby Version
 2.6.4
@@ -52,3 +60,10 @@ Linting is done with Rubocop :cop:
 % docker-compose run runner bundle exec rubocop
 ```
 TODO's are found in `./.rubocop_todo.yml`.
+
+## Seed Whiskeys
+This seeds the Whiskey model including upload photos to Backblaze: 
+```shell
+% docker-compose run runner rake --trace db:seed_fu
+```
+
