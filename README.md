@@ -1,5 +1,10 @@
 # Ruby on Whales: B Side
-[from Evil Martians](https://evilmartians.com/chronicles)
+Versin 0.1.2
+
+Also the Coding Challenge for DAN.COM (via &Work)
+
+from [Evil Martians](https://evilmartians.com/chronicles) and [Aventine Solutions](https://aventine.solutions/)
+
 
 Validimir Dementyev's robust Docker/DockerCompose solution for Rails development.
 

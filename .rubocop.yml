@@ -7,3 +7,6 @@ Metrics/LineLength:
 Layout/LineLength:
   Exclude:
     - config/initializers/devise.rb
+
+Style/SymbolArray:
+  EnforcedStyle: percent

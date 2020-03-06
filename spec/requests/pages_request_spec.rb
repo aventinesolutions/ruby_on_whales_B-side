@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Pages', type: :request do
   describe 'GET /home' do
-
     context 'when not yet logged in' do
       specify 'should require log in' do
         get '/pages/home'
