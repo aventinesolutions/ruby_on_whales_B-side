@@ -10,3 +10,12 @@ Layout/LineLength:
 
 Style/SymbolArray:
   EnforcedStyle: percent
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
