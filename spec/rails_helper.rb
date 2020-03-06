@@ -9,7 +9,7 @@ require 'factory_bot_rails'
 require 'rails-controller-testing'
 require 'capybara/rspec'
 
-Dir[Rails.root.join('spec/support/**/*.rb')].sort.map { |file| require file }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.map { |file| require file }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

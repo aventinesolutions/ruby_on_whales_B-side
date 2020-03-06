@@ -8,6 +8,14 @@ Layout/LineLength:
   Exclude:
     - config/initializers/devise.rb
 
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*.rb
+
 Style/SymbolArray:
   EnforcedStyle: percent
 
@@ -19,3 +27,7 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+
