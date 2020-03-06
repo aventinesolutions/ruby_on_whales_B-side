@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Versin 0.1.2
+Versin 0.1.4
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
