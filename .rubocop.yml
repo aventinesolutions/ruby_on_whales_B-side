@@ -29,3 +29,5 @@ Style/HashTransformValues:
 Rails/FilePath:
   EnforcedStyle: arguments
 
+Rails/EnumHash:
+  Enabled: false
