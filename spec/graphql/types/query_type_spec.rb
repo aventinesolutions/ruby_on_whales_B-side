@@ -25,7 +25,9 @@ RSpec.describe Types::QueryType, type: :graphql_type do
       expect(data.map { |w| w['id'] }).to match_array(whiskeys.map(&:id))
       expect(data.map { |w| w['description'] }).to match_array(whiskeys.map(&:description))
       expect(data.map { |w| w['price'] }).to match_array(whiskeys.map { |w| number_to_currency(w.price, unit: '€ ') })
-      expect(data.map { |w| w['photoUrl'] }).to match_array(whiskeys.map { |w| rails_blob_url(w.photo, only_path: true)})
+      expect(data.map { |w| w['photoUrl'] }).to(
+        match_array(whiskeys.map { |w| rails_blob_url(w.photo, only_path: true) })
+      )
     end
   end
 end
