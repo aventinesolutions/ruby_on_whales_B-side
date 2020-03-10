@@ -2,17 +2,8 @@
 <% if current_account %>
   <%= link_to "Sign Out", destroy_account_session_path, method: :delete %>
   <h2>Hello <code><%= current_account.email %></code></h2>
-  <ul>
-    <% Whiskey.all.each do |whiskey| %>
-      <li>
-        <%= whiskey.description %>
-        <em>Price: €<%= whiskey.price %></em>
-        <% if whiskey.photo.attached? %>
-           <%= image_tag(whiskey.photo) %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <div id="root"/>
+  <%= javascript_pack_tag 'index' %>
 <% else %>
   <%= link_to "Sign In", new_account_session_path %>
 <% end %>
