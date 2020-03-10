@@ -15,6 +15,7 @@ module Types
 
     def photo_url
       return unless object.photo.attached?
+
       rails_blob_url(object.photo, only_path: true)
     end
   end

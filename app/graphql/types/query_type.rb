@@ -4,7 +4,7 @@ module Types
     field :whiskeys,
           [Types::WhiskeyType],
           null: false,
-          description: "Returns a list of whiskeys"
+          description: 'Returns a list of whiskeys'
 
     def whiskeys
       Whiskey.all
