@@ -1,0 +1,40 @@
+.whiskeys-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.whiskey {
+  &-container {
+    border-radius: 1em;
+    border: 0.5em solid saddlebrown;
+    box-shadow: 0.2em 0.2em gray;
+    background-color: white;
+    max-width: 18em;
+    padding: 2em;
+    margin: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &-description {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom: 1em;
+  }
+
+  &-price {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    span {
+      font-size: 1.2em;
+      font-style: italic;
+    }
+  }
+
+  &-photo {
+    max-height: 15em;
+  }
+}
