@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Versin 0.1.4
+Versin 0.1.5
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -66,4 +66,9 @@ This seeds the Whiskey model including upload photos to Backblaze:
 ```shell
 % docker-compose run runner rake --trace db:seed_fu
 ```
+
+## Needs Improvement
+* cleanup up RSpec includes and helpers for view, controller and request tests that need Devise/Warden
+* have variant sizes for the Whiskey images
+* have differenct Backblaze B2 buckets for each of the environments
 

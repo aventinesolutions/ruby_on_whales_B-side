@@ -9,7 +9,17 @@ RSpec.describe Rating, type: :model do
 
   it { is_expected.to validate_presence_of(:account) }
   it { is_expected.to validate_presence_of(:whiskey) }
-  it { is_expected.to validate_uniqueness_of(:whiskey).scoped_to(:account_id) }
+
+  describe 'validates uniqueness of whiskey in scope of account' do
+    let!(:account) { create :account }
+    let!(:whiskey) { create :whiskey }
+    let!(:rating) { create :rating, account: account, whiskey: whiskey }
+
+    specify 'does not allow two ratings for the same account and whiskey' do
+      rating2 = build :rating, account: account, whiskey: whiskey
+      expect { rating2.save! }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
 
   it { is_expected.to have_db_index(%i[account_id whiskey_id]).unique(true) }
 

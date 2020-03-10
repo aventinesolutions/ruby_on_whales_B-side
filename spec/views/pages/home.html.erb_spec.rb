@@ -1,22 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe 'pages/home.html.erb', type: :view do
+  include Devise::Test::ControllerHelpers
+  include Warden::Test::Helpers
+  before(:each) { Warden.test_mode! }
+  after(:each) { Warden.test_reset! }
+
   context 'when account is not logged in' do
-    pending 'TODO: solve problem with Devise and Warden test helpers'
-    # specify 'allows the user to log in' do
-    #   render
-    #   expect(rendered).not_to contain(account.email)
-    # end
+    specify 'allows the user to log in' do
+      render
+      assert_select('a') do |element|
+        expect(/sign_in/.match(element.first[:href])).to be_truthy
+      end
+    end
   end
 
   context 'when account is logged in' do
     let!(:account) { create :account }
     before { sign_in(account) }
 
-    pending 'TODO: solve problem with Devise and Warden test helpers'
-    # specify 'shows that user is logged in' do
-    #   render
-    #   expect(rendered).to contain(account.email)
-    # end
+    specify 'shows that user is logged in' do
+      render
+      assert_select('a') do |element|
+        expect(/sign_out/.match(element.first[:href])).to be_truthy
+      end
+    end
   end
 end
