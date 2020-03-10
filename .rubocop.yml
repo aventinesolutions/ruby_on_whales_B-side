@@ -15,6 +15,10 @@ Metrics/MethodLength:
     - db/migrate/**/*.rb
     - app/controllers/graphql_controller.rb
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
 Style/SymbolArray:
   EnforcedStyle: percent
 
