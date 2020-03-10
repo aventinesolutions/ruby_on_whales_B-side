@@ -70,5 +70,5 @@ This seeds the Whiskey model including upload photos to Backblaze:
 ## Needs Improvement
 * cleanup up RSpec includes and helpers for view, controller and request tests that need Devise/Warden
 * have variant sizes for the Whiskey images
-* have differenct Backblaze B2 buckets for each of the environments
-
+* have different Backblaze B2 buckets for each of the environments
+* use [Sentry](https://sentry.io) to log errors from the Apollo client

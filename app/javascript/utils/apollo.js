@@ -45,6 +45,7 @@ const createLinkWithToken = () =>
 	);
 
 // log erors
+// TODO: use Sentry here
 const logError = (error) => console.error(error);
 // create error link
 const createErrorLink = () => onError(({ graphQLErrors, networkError, operation }) => {
