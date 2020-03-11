@@ -18,7 +18,7 @@ export default () => (
 	<Query query={WhiskeysQuery}>
 		{({ data, loading }) => (
 			<div className='whiskeys-container'>
-				{loading ? 'loading ...' : data.whiskeys.map(whiskey => <Whiskey {...whiskey} />)}
+				{loading ? 'loading ...' : data.whiskeys.map(whiskey => <Whiskey key={whiskey.id} {...whiskey} />)}
 			</div>
 		)}
 	</Query>
