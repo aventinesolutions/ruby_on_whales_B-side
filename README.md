@@ -47,6 +47,18 @@ Running database tasks with `rake`
 % docker exec -it ruby_on_whales_b-side_rails_1 bundle exec rake --trace db:migrate
 ```
 
+Updating dependencies
+```shell
+% docker-compose exec runner bundle install
+% docker-compose exec runner yarn 
+```
+
+Trouble with Windows terminal output?  You can always try `winpty`
+```shell
+% winpty docker-compose exec runner bundle install
+% winpty docker-compose exec runner yarn 
+```
+
 ## Testing
 Testing is done with RSpec
 ```shell
