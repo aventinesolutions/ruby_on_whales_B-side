@@ -7,12 +7,13 @@ export default ({ photoUrl }) => {
 	return (
 		<div>
 			<img
-				alt={state}
-				className='whiskey-photo'
+				className='whiskey-photo-placeholder'
+				alt='image-placeholder'
 				src={photoUrl}
-				onLoad={ () => setState(null) }
-				onError={ () => setState('unable to load photo') }
+				onLoad={() => setState('loaded')}
+				onError={() => setState('unable to load photo')}
 			/>
+			{state === 'loaded' ? <img alt='whiskey photo' className='whiskey-photo animated bounce' src={photoUrl} /> : state}
 		</div>
 	);
 };
