@@ -14,12 +14,12 @@ const WhiskeysQuery = gql`
     }
   }`;
 
-export default () => (
-	<Query query={WhiskeysQuery}>
-		{({ data, loading }) => (
-			<div className='whiskeys-container'>
-				{loading ? 'loading ...' : data.whiskeys.map(whiskey => <Whiskey {...whiskey} />)}
-			</div>
-		)}
-	</Query>
-);
+export default () => 
+  <Query query={WhiskeysQuery}>
+    {({ data, loading }) => 
+      <div className='whiskeys-container'>
+        {loading ? 'loading ...' : data.whiskeys.map(whiskey => <Whiskey {...whiskey} />)}
+      </div>
+    }
+  </Query>
+;
