@@ -10,6 +10,7 @@ services:
         PG_MAJOR: '12'
         NODE_MAJOR: '13'
         YARN_VERSION: '1.22.0'
+        ESLINT_VERSION: '6.8.0'
         BUNDLER_VERSION: '2.1.4'
     image: aventine-ruby-dev:1.0.1
     tmpfs:
