@@ -12,6 +12,7 @@ RSpec.describe 'pages/home.html.erb', type: :view do
       assert_select('a') do |element|
         expect(/sign_in/.match(element.first[:href])).to be_truthy
       end
+      assert_select('#root', false)
     end
   end
 
@@ -23,6 +24,9 @@ RSpec.describe 'pages/home.html.erb', type: :view do
       render
       assert_select('a') do |element|
         expect(/sign_out/.match(element.first[:href])).to be_truthy
+      end
+      assert_select('#root') do |element|
+        expect(element.first['data-account-id']).to eq(account.id)
       end
     end
   end
