@@ -67,7 +67,7 @@ const createHttpLink = () => new HttpLink({
   credentials: 'include',
 });
 
-export const createClient = (cache, requestLink) => {
+export const createClient = (cache) => {
   return new ApolloClient({
     link: ApolloLink.from([
       createErrorLink(),
