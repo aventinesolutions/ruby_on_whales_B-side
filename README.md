@@ -74,5 +74,6 @@ This seeds the Whiskey model including upload photos to Backblaze:
 * have different Backblaze B2 buckets for each of the environments
 * use [Sentry](https://sentry.io) to log errors from the Apollo client
 * could consider using TypeScript for the frontend
+* improved type checking in the frontend for things like UUID and URL's
 * "real" authentication for GraphQL ([read this](https://www.howtographql.com/graphql-ruby/4-authentication/))
 
