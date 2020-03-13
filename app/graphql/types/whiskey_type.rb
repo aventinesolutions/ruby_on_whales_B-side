@@ -5,6 +5,7 @@ module Types
     include ActionView::Helpers::NumberHelper
 
     field :id, ID, null: false
+    field :title, String, null: false
     field :description, String, null: true
     field :price, String, null: true
     field :photo_url, String, null: true
