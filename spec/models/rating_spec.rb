@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Rating, type: :model do
   it { is_expected.to have_db_column(:account_id).with_options(null: false, type: :uuid) }
   it { is_expected.to have_db_column(:whiskey_id).with_options(null: false, type: :uuid) }
+  it { is_expected.to have_db_column(:quality).with_options(null: false, type: :rating_quality_t, default: :taste) }
+  it { is_expected.to have_db_column(:stars).with_options(null: false, type: :rating_stars_t, default: :no_stars) }
 
   it { is_expected.to belong_to(:account) }
   it { is_expected.to belong_to(:whiskey) }
