@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { AccountContext } from "../../context/AccountContext";
 import ReactImageAppear from 'react-image-appear';
 import './styles.scss';
@@ -25,5 +27,11 @@ const Whiskey = ({ id, description, price, photoUrl }) =>
 ;
 
 Whiskey.displayName = 'Whiskey';
+Whiskey.propTypes = {
+  id: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.number,
+  photoUrl: PropTypes.string
+};
 
 export default Whiskey;
