@@ -1,6 +1,11 @@
 {
   "name": "ruby_on_whales_B_side",
+  "version": "0.1.8",
   "private": true,
+  "scripts": {
+    "lint": "eslint app/javascript",
+    "lint:fix": "eslint --fix app/javascript"
+  },
   "dependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/preset-react": "^7.8.3",
@@ -26,8 +31,11 @@
     "react-image-appear": "^1.2.22",
     "turbolinks": "^5.2.0"
   },
-  "version": "0.1.8",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-watch": "^6.0.1",
     "webpack": "^4.0.0",
     "webpack-dev-server": "^3.10.3"
   }
