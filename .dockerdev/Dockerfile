@@ -46,6 +46,9 @@ ENV PATH /app/bin:$BUNDLE_BIN:$PATH
 RUN gem update --system && \
     gem install bundler:$BUNDLER_VERSION
 
+# Install eslint globally
+RUN npm install --global eslint@$ESLINT_VERSION
+
 # Create a directory for the app code
 RUN mkdir -p /app
 
