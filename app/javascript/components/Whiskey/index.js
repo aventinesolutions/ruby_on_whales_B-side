@@ -5,11 +5,12 @@ import { AccountContext } from "../../context/AccountContext";
 import ReactImageAppear from 'react-image-appear';
 import './styles.scss';
 
-const Whiskey = ({ id, description, price, photoUrl }) =>
+const Whiskey = ({ id, title, description, price, photoUrl }) =>
   <AccountContext.Consumer>
     {
       ({ account_id }) =>
         <div className='whiskey-container' key={id}>
+          <h2 className='whiskey-title'>{title}</h2>
           <div className='whiskey-description'>{description}</div>
           <div className='whiskey-price'>Price: <span>{price}</span></div>
           <ReactImageAppear
@@ -29,6 +30,7 @@ const Whiskey = ({ id, description, price, photoUrl }) =>
 Whiskey.displayName = 'Whiskey';
 Whiskey.propTypes = {
   id: PropTypes.string,
+  title: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
   photoUrl: PropTypes.string
