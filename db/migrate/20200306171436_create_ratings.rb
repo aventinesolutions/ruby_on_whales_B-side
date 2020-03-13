@@ -2,12 +2,14 @@
 class CreateRatings < ActiveRecord::Migration[6.0]
   def up
     execute <<-SQL
-      CREATE TYPE rating_stars_t AS ENUM('no_stars', 'one', 'two', 'three', 'four', 'five')
+      CREATE TYPE rating_quality_t AS ENUM('taste', 'color', 'smokiness');
+      CREATE TYPE rating_stars_t AS ENUM('no_stars', 'one', 'two', 'three', 'four', 'five');
     SQL
 
     create_table :ratings, id: :uuid do |t|
       t.references :account, type: :uuid, null: false
       t.references :whiskey, type: :uuid, null: false
+      t.integer :quality, type: :rating_quality_t, null: false, default: 0
       t.integer :stars, type: :rating_stars_t, null: false, default: 0
       t.timestamps
     end
@@ -19,7 +21,8 @@ class CreateRatings < ActiveRecord::Migration[6.0]
   def down
     drop_table :ratings
     execute <<-SQL
-      DROP TYPE rating_stars_t
+      DROP TYPE rating_stars_t;
+      DROP TYPE rating_quality_t;
     SQL
   end
 end
