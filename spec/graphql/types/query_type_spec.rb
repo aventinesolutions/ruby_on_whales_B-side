@@ -11,6 +11,7 @@ RSpec.describe Types::QueryType, type: :graphql_type do
       %(query {
          whiskeys {
             id
+            title
             description
             price
             photoUrl
@@ -23,6 +24,7 @@ RSpec.describe Types::QueryType, type: :graphql_type do
     specify 'returns all whiskeys' do
       data = result.dig('data', 'whiskeys')
       expect(data.map { |w| w['id'] }).to match_array(whiskeys.map(&:id))
+      expect(data.map { |w| w['title'] }).to match_array(whiskeys.map(&:title))
       expect(data.map { |w| w['description'] }).to match_array(whiskeys.map(&:description))
       expect(data.map { |w| w['price'] }).to match_array(whiskeys.map { |w| number_to_currency(w.price, unit: '€ ') })
       expect(data.map { |w| w['photoUrl'] }).to(
