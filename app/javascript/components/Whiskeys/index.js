@@ -9,6 +9,7 @@ const WhiskeysQuery = gql`
   {
     whiskeys {
       id
+      title
       description
       price
       photoUrl

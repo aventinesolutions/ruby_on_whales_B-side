@@ -57,10 +57,12 @@ ActiveRecord::Schema.define(version: 2020_03_06_171436) do
   end
 
   create_table "whiskeys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
     t.string "description"
     t.decimal "price", precision: 12, scale: 2, default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_whiskeys_on_title"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

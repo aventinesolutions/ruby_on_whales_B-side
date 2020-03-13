@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :whiskey do
+    title { Faker::Creature::Horse.name }
     description { Faker::Lorem.paragraph }
     price { rand(1000..100_000) / 100 }
     transient { photo_file { Rails.root.join('spec', 'factories', 'photos', '243055-normal.png') } }

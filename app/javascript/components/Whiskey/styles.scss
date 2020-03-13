@@ -12,6 +12,13 @@
     justify-content: center;
   }
 
+  &-title {
+    font-size: 2em;
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: 0.5em;
+  }
+
   &-description {
     font-size: 1.5em;
     font-weight: bolder;
