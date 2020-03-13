@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.8
+Version 0.1.p
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -55,11 +55,20 @@ Testing is done with RSpec
 Factories are found in `./spec/factories`.
 
 ## Linting
-Linting is done with Rubocop :cop:
+Ruby linting is done with Rubocop :cop:
 ```shell
 % docker-compose run runner bundle exec rubocop
 ```
 TODO's are found in `./.rubocop_todo.yml`.
+
+Javascript linting is done with ES Lint :cop:
+```shell
+% winpty docker-compose run runndle yarn lint
+# try automatic fixes
+% winpty docker-compose run runndle yarn lint-fix
+```
+ES lint configuration is in './eslintrc'
+
 
 ## Seed Whiskeys
 This seeds the Whiskey model including upload photos to Backblaze: 
@@ -74,6 +83,6 @@ This seeds the Whiskey model including upload photos to Backblaze:
 * have different Backblaze B2 buckets for each of the environments
 * use [Sentry](https://sentry.io) to log errors from the Apollo client
 * could consider using TypeScript for the frontend
-* improved type checking in the frontend for things like UUID and URL's
+* improved type checking in the frontend for things like UUID,  URL's and enums.
 * "real" authentication for GraphQL ([read this](https://www.howtographql.com/graphql-ruby/4-authentication/))
 
