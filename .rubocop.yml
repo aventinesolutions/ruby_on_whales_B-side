@@ -19,6 +19,12 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
 
+Style/RedundantPercentQ:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
 Style/SymbolArray:
   EnforcedStyle: percent
 

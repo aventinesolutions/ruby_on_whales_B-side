@@ -10,7 +10,7 @@ RSpec.describe Types::QueryType, type: :graphql_type do
     let!(:whiskeys) { create_list :whiskey, 2 }
 
     let(:query) do
-      %(query {
+      %q(query {
           whiskeys {
             id
             title
@@ -34,6 +34,7 @@ RSpec.describe Types::QueryType, type: :graphql_type do
   end
 
   describe 'search' do
+    let!(:account) { create :account }
     let!(:whiskeys) do
       [
         create(:whiskey, description: "binaughty #{Faker::Lorem.sentence}"),
@@ -42,7 +43,7 @@ RSpec.describe Types::QueryType, type: :graphql_type do
       ]
     end
 
-    let(:query) { 'query { search( filter: { text: "binaughty" } ) { id } }' }
+    let(:query) { %Q[query { search( filter: { accountId: "#{account.id}" text: "binaughty" } ) { id } }] }
 
     specify 'returns correct filtered whiskeys' do
       data = result.dig('data', 'search').map { |w| w['id'] }

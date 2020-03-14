@@ -10,14 +10,20 @@ module Resolvers
 
     type types[Types::WhiskeyType]
 
-    # a simple filter input object for text
+    # a simple filter input object for Account ID and text
     class TextFilter < ::Types::BaseInputObject
+      argument :account_id, String, required: true
       argument :text, String, required: true
     end
 
     option :filter, type: TextFilter, with: :apply_filter
 
     def apply_filter(scope, value)
+      begin
+        Account.find(value[:account_id])
+      rescue ActiveRecord::RecordNotFound
+        return []
+      end
       scope.search_text(value[:text])
     end
   end
