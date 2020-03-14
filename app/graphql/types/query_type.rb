@@ -6,6 +6,8 @@ module Types
           null: false,
           description: 'Returns a list of whiskeys'
 
+    field :search, resolver: Resolvers::Search
+
     def whiskeys
       Whiskey.all
     end

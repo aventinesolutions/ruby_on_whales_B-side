@@ -4,12 +4,14 @@ RSpec.describe Types::QueryType, type: :graphql_type do
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::NumberHelper
 
+  subject(:result) { RubyOnWhalesBSideSchema.execute(query).as_json }
+
   describe 'whiskeys' do
     let!(:whiskeys) { create_list :whiskey, 2 }
 
     let(:query) do
       %(query {
-         whiskeys {
+          whiskeys {
             id
             title
             description
@@ -18,8 +20,6 @@ RSpec.describe Types::QueryType, type: :graphql_type do
          }
        })
     end
-
-    subject(:result) { RubyOnWhalesBSideSchema.execute(query).as_json }
 
     specify 'returns all whiskeys' do
       data = result.dig('data', 'whiskeys')
@@ -30,6 +30,25 @@ RSpec.describe Types::QueryType, type: :graphql_type do
       expect(data.map { |w| w['photoUrl'] }).to(
         match_array(whiskeys.map { |w| rails_blob_url(w.photo, only_path: true) })
       )
+    end
+  end
+
+  describe 'search' do
+    let!(:whiskeys) do
+      [
+        create(:whiskey, description: "binaughty #{Faker::Lorem.sentence}"),
+        create(:whiskey),
+        create(:whiskey, title: 'Bemb Binaughty')
+      ]
+    end
+
+    let(:query) { 'query { search( filter: { text: "binaughty" } ) { id } }' }
+
+    specify 'returns correct filtered whiskeys' do
+      data = result.dig('data', 'search').map { |w| w['id'] }
+      expect(data).to include(whiskeys[0].id)
+      expect(data).not_to include(whiskeys[1].id)
+      expect(data).to include(whiskeys[2].id)
     end
   end
 end
