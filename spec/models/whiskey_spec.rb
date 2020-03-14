@@ -19,4 +19,22 @@ RSpec.describe Whiskey, type: :model do
       expect(subject.photo.byte_size).to be(62_755)
     end
   end
+
+  describe '#search_text' do
+    let!(:whiskeys) do
+      [
+        create(:whiskey, title: 'Plim Piquaercky'),
+        create(:whiskey, description: "piquaercky #{Faker::Lorem.sentence}"),
+        create(:whiskey)
+      ]
+    end
+
+    subject { Whiskey.search_text('piquaercky').to_a }
+
+    specify 'results' do
+      expect(subject).to include(whiskeys[0])
+      expect(subject).to include(whiskeys[1])
+      expect(subject).not_to include(whiskeys[2])
+    end
+  end
 end
