@@ -6,5 +6,5 @@ class Rating < ApplicationRecord
   belongs_to :whiskey
   validates :account, presence: true
   validates :whiskey, presence: true
-  validates :whiskey, uniqueness: { scope: :account_id }
+  validates :quality, uniqueness: { scope: [:account_id, :whiskey_id] }
 end
