@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_171436) do
     t.integer "stars", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id", "whiskey_id"], name: "ratings_account_whiskey_unique_index", unique: true
+    t.index ["account_id", "whiskey_id", "quality"], name: "ratings_account_whiskey_quality_unique_index", unique: true
     t.index ["account_id"], name: "index_ratings_on_account_id"
     t.index ["whiskey_id"], name: "index_ratings_on_whiskey_id"
   end

@@ -1,10 +1,9 @@
 # Ruby on Whales: B Side
-Version 0.1.11
+Version 0.1.12
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
 from [Evil Martians](https://evilmartians.com/chronicles) and [Aventine Solutions](https://aventine.solutions/)
-
 
 Validimir Dementyev's robust Docker/DockerCompose solution for Rails development.
 
@@ -76,6 +75,14 @@ This seeds the Whiskey model including upload photos to Backblaze:
 % docker-compose run runner rake --trace db:seed_fu
 ```
 
+## Add Accounts
+Accounts may *only* be added using the Rails console at this time:
+```shell
+% winpty docker-compose exec runner rails console
+# Account.create!(email: 'someone@nowhere.org', password: '<secret>', password_confirmation: '<secret>')
+```
+
+
 ## Needs Improvement
 * cleanup up RSpec includes and helpers for view, controller and request tests that need Devise/Warden
 * prefer HAML over ERB
@@ -85,4 +92,6 @@ This seeds the Whiskey model including upload photos to Backblaze:
 * could consider using TypeScript for the frontend
 * improved type checking in the frontend for things like UUID,  URL's and enums.
 * "real" authentication for GraphQL ([read this](https://www.howtographql.com/graphql-ruby/4-authentication/))
+* self registration and confirmation of accounts with emails using [Mandrill](https://mandrillapp.com)
+
 

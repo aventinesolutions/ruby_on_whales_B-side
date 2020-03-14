@@ -15,15 +15,15 @@ RSpec.describe Rating, type: :model do
   describe 'validates uniqueness of whiskey in scope of account' do
     let!(:account) { create :account }
     let!(:whiskey) { create :whiskey }
-    let!(:rating) { create :rating, account: account, whiskey: whiskey }
+    let!(:rating) { create :rating, account: account, whiskey: whiskey, quality: :color }
 
     specify 'does not allow two ratings for the same account and whiskey' do
-      rating2 = build :rating, account: account, whiskey: whiskey
+      rating2 = build :rating, account: account, whiskey: whiskey, quality: :color
       expect { rating2.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
-  it { is_expected.to have_db_index(%i[account_id whiskey_id]).unique(true) }
+  it { is_expected.to have_db_index(%i[account_id whiskey_id quality]).unique(true) }
 
   describe 'enum #stars' do
     let(:account) { create :account }
