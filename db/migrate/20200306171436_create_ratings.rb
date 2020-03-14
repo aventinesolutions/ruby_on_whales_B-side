@@ -15,7 +15,8 @@ class CreateRatings < ActiveRecord::Migration[6.0]
     end
     add_foreign_key :ratings, :accounts, name: :fk_ratings_accounts
     add_foreign_key :ratings, :whiskeys, name: :fk_ratings_whiskeys
-    add_index :ratings, %i[account_id whiskey_id], name: :ratings_account_whiskey_unique_index, unique: true
+    add_index :ratings, %i[account_id whiskey_id quality],
+              name: :ratings_account_whiskey_quality_unique_index, unique: true
   end
 
   def down
