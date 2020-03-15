@@ -15,6 +15,10 @@ Metrics/MethodLength:
     - db/migrate/**/*.rb
     - app/controllers/graphql_controller.rb
 
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*.rb
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
