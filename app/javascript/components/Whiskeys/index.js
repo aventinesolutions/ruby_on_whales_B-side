@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import Whiskey from '../Whiskey';
-import './styles.scss';
 
 const Whiskeys = ({ query }) =>
   <Query query={query}>
