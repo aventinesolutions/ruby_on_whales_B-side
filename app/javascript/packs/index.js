@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Provider from '../components/Provider';
-import Whiskeys from '../components/Whiskeys';
+import Search from '../components/Search';
 
 render(
   <Provider>
-    <Whiskeys />
+    <Search />
   </Provider>, document.querySelector('#root'));
