@@ -37,8 +37,9 @@ RSpec.describe Types::QueryType, type: :graphql_type do
     let!(:account) { create :account }
     let!(:ratings) { create_list :rating, 2, account: account }
 
-    let(:query) do
-      %Q[query {
+    context 'when given a valid Account id' do
+      let(:query) do
+        %Q[query {
           ratings( accountId: "#{account.id}" ) {
             id
             whiskeyId
@@ -46,14 +47,32 @@ RSpec.describe Types::QueryType, type: :graphql_type do
             stars
          }
        }]
+      end
+
+      specify 'returns all ratings for the account' do
+        data = result.dig('data', 'ratings')
+        expect(data.map { |w| w['id'] }).to match_array(ratings.map(&:id))
+        expect(data.map { |w| w['whiskeyId'] }).to match_array(ratings.map(&:whiskey_id))
+        expect(data.map { |w| w['quality'] }).to match_array(ratings.map(&:quality))
+        expect(data.map { |w| w['stars'] }).to match_array(ratings.map(&:stars))
+      end
     end
 
-    specify 'returns all ratings for the account' do
-      data = result.dig('data', 'ratings')
-      expect(data.map { |w| w['id'] }).to match_array(ratings.map(&:id))
-      expect(data.map { |w| w['whiskeyId'] }).to match_array(ratings.map(&:whiskey_id))
-      expect(data.map { |w| w['quality'] }).to match_array(ratings.map(&:quality))
-      expect(data.map { |w| w['stars'] }).to match_array(ratings.map(&:stars))
+    context 'when given an invalid Account id' do
+      let(:query) do
+        %q(query {
+          ratings( accountId: "plim" ) {
+            id
+            whiskeyId
+            quality
+            stars
+         }
+       })
+      end
+
+      specify 'returns an empty list' do
+        expect(result.dig('data', 'ratings')).to eq([])
+      end
     end
   end
 
