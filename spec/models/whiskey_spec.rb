@@ -4,6 +4,8 @@ RSpec.describe Whiskey, type: :model do
   it { is_expected.to have_db_column(:title).of_type(:string).with_options(null: false) }
   it { is_expected.to have_db_column(:description).of_type(:string) }
 
+  it { is_expected.to have_many(:ratings) }
+
   it { is_expected.to have_db_index(:title) }
 
   specify 'price column' do
