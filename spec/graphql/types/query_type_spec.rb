@@ -33,6 +33,30 @@ RSpec.describe Types::QueryType, type: :graphql_type do
     end
   end
 
+  describe 'ratings' do
+    let!(:account) { create :account }
+    let!(:ratings) { create_list :rating, 2, account: account }
+
+    let(:query) do
+      %Q[query {
+          ratings( accountId: "#{account.id}" ) {
+            id
+            whiskeyId
+            quality
+            stars
+         }
+       }]
+    end
+
+    specify 'returns all ratings for the account' do
+      data = result.dig('data', 'ratings')
+      expect(data.map { |w| w['id'] }).to match_array(ratings.map(&:id))
+      expect(data.map { |w| w['whiskeyId'] }).to match_array(ratings.map(&:whiskey_id))
+      expect(data.map { |w| w['quality'] }).to match_array(ratings.map(&:quality))
+      expect(data.map { |w| w['stars'] }).to match_array(ratings.map(&:stars))
+    end
+  end
+
   describe 'search' do
     let!(:account) { create :account }
     let!(:whiskeys) do
