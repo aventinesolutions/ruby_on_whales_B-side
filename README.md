@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.13
+Version 0.1.14
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -10,7 +10,7 @@ Validimir Dementyev's robust Docker/DockerCompose solution for Rails development
 * [Vladimir's Article](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
 * [Vladimir's Repository "Terraforming Rails"](https://github.com/evilmartians/terraforming-rails)
 
-## Why Docker for Developement?
+## Why Docker for Development?
 * Guarantees to work cross platform
 * Development could be set up in the Cloud (in the future).
 
@@ -95,5 +95,6 @@ Accounts may *only* be added using the Rails console at this time:
 * self registration and confirmation of accounts with emails using [Mandrill](https://mandrillapp.com)
 * Improve support for UUID's in GraphQL
 * For performance, dive into "N+1" queries, connection types and pagination with GraphQL
+* Define GraphQL enum types for "quality" and "stars"
 
 
