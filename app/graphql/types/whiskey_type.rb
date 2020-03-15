@@ -21,8 +21,6 @@ module Types
       rails_blob_url(object.photo, only_path: true)
     end
 
-    def ratings
-      object.ratings
-    end
+    delegate :ratings, to: :object
   end
 end

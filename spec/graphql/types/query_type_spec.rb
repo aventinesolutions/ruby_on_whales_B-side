@@ -82,17 +82,35 @@ RSpec.describe Types::QueryType, type: :graphql_type do
       [
         create(:whiskey, description: "binaughty #{Faker::Lorem.sentence}"),
         create(:whiskey),
-        create(:whiskey, title: 'Bemb Binaughty')
+        create(:whiskey, title: 'Bemb Binaughty'),
+        create(:whiskey, :with_ratings, title: 'The Vampire Slayer, Mighty Binaughty', account: account)
       ]
     end
 
-    let(:query) { %Q[query { search( filter: { accountId: "#{account.id}" text: "binaughty" } ) { id } }] }
+    let(:query) do
+      %Q[query {
+           search( filter: { accountId: "#{account.id}" text: "binaughty" } )
+             {
+               id
+               ratings {
+                 id
+               }
+             }
+           }]
+    end
 
     specify 'returns correct filtered whiskeys' do
       data = result.dig('data', 'search').map { |w| w['id'] }
       expect(data).to include(whiskeys[0].id)
       expect(data).not_to include(whiskeys[1].id)
       expect(data).to include(whiskeys[2].id)
+      expect(data).to include(whiskeys[3].id)
+    end
+
+    specify 'returns the ratings for the Account when available' do
+      data = result.dig('data', 'search').map { |w| w['ratings'] }
+      expect(data).to include([])
+      expect(data).to include(whiskeys[3].ratings.map { |r| { 'id' => r.id } })
     end
   end
 end

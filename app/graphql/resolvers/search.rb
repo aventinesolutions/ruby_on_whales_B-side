@@ -24,7 +24,10 @@ module Resolvers
       rescue ActiveRecord::RecordNotFound
         return []
       end
-      scope.search_text(value[:text])
+      scope.search_text(value[:text]).left_outer_joins(:ratings)
+           .where(ratings: { account_id: value[:account_id] })
+           .or(scope.search_text(value[:text]).left_outer_joins(:ratings)
+                    .where(ratings: { id: nil })).uniq
     end
   end
 end
