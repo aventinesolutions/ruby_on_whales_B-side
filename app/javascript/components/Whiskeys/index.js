@@ -7,10 +7,10 @@ import './styles.scss';
 const Whiskeys = ({ query }) =>
   <Query query={query}>
     {({ data, loading }) =>
-      <div className='whiskeys-container'>
+      <>
         {loading ? 'loading ...' :
           data.search.map(whiskey => <Whiskey key={whiskey.id} {...whiskey} />)}
-      </div>
+      </>
     }
   </Query>
 ;
