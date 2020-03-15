@@ -6,6 +6,7 @@ ruby '2.6.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'pg', '~> 1.0'
+gem 'pg_search', '~> 2.3'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
@@ -20,6 +21,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'seed-fu', '~> 2.3'
 gem 'activestorage-backblaze', '0.0.5'
 gem 'graphql', '~> 1.10'
+gem 'search_object_graphql', '> 0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
