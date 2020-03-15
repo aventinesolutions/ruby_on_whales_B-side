@@ -22,7 +22,6 @@ const Whiskey = ({ id, title, description, price, photoUrl }) =>
           />
           <div style={{ display: 'none' }}>Account ID: {account_id}</div>
         </div>
-
     }
   </AccountContext.Consumer>
 ;
