@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.13
+Version 0.1.14
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
