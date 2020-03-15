@@ -93,5 +93,7 @@ Accounts may *only* be added using the Rails console at this time:
 * improved type checking in the frontend for things like UUID,  URL's and enums.
 * "real" authentication for GraphQL ([read this](https://www.howtographql.com/graphql-ruby/4-authentication/))
 * self registration and confirmation of accounts with emails using [Mandrill](https://mandrillapp.com)
+* Improve support for UUID's in GraphQL
+* For performance, dive into "N+1" queries, connection types and pagination with GraphQL
 
 

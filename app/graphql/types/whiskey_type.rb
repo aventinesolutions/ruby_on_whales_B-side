@@ -9,6 +9,7 @@ module Types
     field :description, String, null: true
     field :price, String, null: true
     field :photo_url, String, null: true
+    field :ratings, [Types::RatingType], null: false
 
     def price
       number_to_currency(object.price, unit: '€ ')
@@ -19,5 +20,7 @@ module Types
 
       rails_blob_url(object.photo, only_path: true)
     end
+
+    delegate :ratings, to: :object
   end
 end
