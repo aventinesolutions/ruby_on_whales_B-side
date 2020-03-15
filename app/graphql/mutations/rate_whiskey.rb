@@ -10,10 +10,9 @@ module Mutations
 
     def resolve(account_id:, whiskey_id:, quality:, stars:)
       rating = Rating.find_or_create_by!(account_id: account_id,
-                                whiskey_id: whiskey_id,
-                                quality: quality) do |rating|
-      end
-      rating.update_attributes!(stars: stars)
+                                         whiskey_id: whiskey_id,
+                                         quality: quality)
+      rating.update!(stars: stars)
       rating
     end
   end
