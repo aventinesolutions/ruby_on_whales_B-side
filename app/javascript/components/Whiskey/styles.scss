@@ -40,3 +40,17 @@
     max-height: 15em;
   }
 }
+
+.ratings-container {
+  display: flex;
+}
+
+.stars-container {
+  align-self: center;
+  min-width: 5em;
+  margin-right: 1em;
+  h3 {
+    text-transform: uppercase;
+    padding-bottom: 0;
+  }
+}
