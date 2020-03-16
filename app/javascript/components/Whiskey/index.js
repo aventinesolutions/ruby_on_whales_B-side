@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ReactImageAppear from 'react-image-appear';
+import Rating from '../Rating';
 import './styles.scss';
+import { AccountContext } from "../../context/AccountContext";
 
-const Whiskey = ({ id, title, description, price, photoUrl }) =>
+const Whiskey = ({ id, title, description, price, photoUrl, ratings }) =>
   <div className='whiskey-container' key={id}>
     <h2 className='whiskey-title'>{title}</h2>
     <div className='whiskey-description'>{description}</div>
@@ -16,6 +18,24 @@ const Whiskey = ({ id, title, description, price, photoUrl }) =>
       animation='bounceInDown'
       animationDuration='2s'
     />
+    <AccountContext.Consumer>
+      {
+        ({ account_id }) =>
+          <div className="ratings-container">
+            {
+              ['taste', 'color', 'smokiness'].map(quality =>
+                <Rating
+                  key={`${id}-${quality}`}
+                  id={id}
+                  quality={quality}
+                  ratings={ratings}
+                  account_id={account_id}
+                />
+              )
+            }
+          </div>
+      }
+    </AccountContext.Consumer>
   </div>
 ;
 
@@ -24,8 +44,9 @@ Whiskey.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  price: PropTypes.number,
-  photoUrl: PropTypes.string
+  price: PropTypes.string,
+  photoUrl: PropTypes.string,
+  ratings: PropTypes.array
 };
 
 export default Whiskey;
