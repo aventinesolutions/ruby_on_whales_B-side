@@ -1,0 +1,27 @@
+.ratings-container {
+  display: flex;
+  padding-top: 1em;
+}
+
+.stars-container {
+  align-self: center;
+  min-width: 5em;
+  margin-right: 1em;
+  border-style: none solid none none;
+  border-width: 1px;
+  border-color: black;
+  padding-top: 0;
+  padding-right: 1em;
+  &:last-child {
+    border-style: none;
+  }
+  h3 {
+    text-transform: uppercase;
+    padding-bottom: 0;
+  }
+
+  .rating-id {
+    display: none;
+    visibility: hidden;
+  }
+}
