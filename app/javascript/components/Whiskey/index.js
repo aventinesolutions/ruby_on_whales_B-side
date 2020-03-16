@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ReactImageAppear from 'react-image-appear';
-import StarRatingComponent from 'react-star-rating-component';
+import Rating from '../Rating';
 import './styles.scss';
 
 const Whiskey = ({ id, title, description, price, photoUrl }) =>
@@ -20,10 +20,7 @@ const Whiskey = ({ id, title, description, price, photoUrl }) =>
     <div className="ratings-container">
       {
         ['taste', 'color', 'smokiness'].map(quality =>
-          <div key={`${id}-${quality}`} className="stars-container">
-            <h3>{quality}</h3>
-            <StarRatingComponent name={`${id}-${quality}`} />
-          </div>
+          <Rating key={`${id}-${quality}`} id={id} quality={quality} />
         )
       }
     </div>

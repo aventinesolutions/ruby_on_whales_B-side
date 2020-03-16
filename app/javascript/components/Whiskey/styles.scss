@@ -40,24 +40,3 @@
     max-height: 15em;
   }
 }
-
-.ratings-container {
-  display: flex;
-}
-
-.stars-container {
-  align-self: center;
-  min-width: 5em;
-  margin-right: 1em;
-  border-style: none solid none none;
-  border-width: 1px;
-  border-color: black;
-  padding-top: 0;
-  &:last-child {
-    border-style: none;
-  }
-  h3 {
-    text-transform: uppercase;
-    padding-bottom: 0;
-  }
-}
