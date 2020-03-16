@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -26,6 +26,7 @@ const Rating = ({ id, quality, ratings, account_id }) => {
       return ratingsMapping[existing['stars']];
     return 0;
   });
+  const [ratingId, setRatingId] = useState(null);
 
   const [rateWhiskey] = useMutation(gql`
     mutation variables(
@@ -54,16 +55,17 @@ const Rating = ({ id, quality, ratings, account_id }) => {
     ignoreResults: true
   });
 
-  useEffect(function () {
-    rateWhiskey();
-  });
+  async function updateRating(newRating) {
+    await setRating(newRating);
+    await rateWhiskey().then(({ data }) => setRatingId(data['rateWhiskey']['id']));
+  }
 
   return (
     <div key={`${id}-${quality}`} className="stars-container">
       <h3>{quality}</h3>
       <Ratings
         rating={rating}
-        changeRating={setRating}
+        changeRating={(newRating) => updateRating(newRating)}
         widgetDimensions='1em'
         widgetSpacings='0'
       >
@@ -73,6 +75,7 @@ const Rating = ({ id, quality, ratings, account_id }) => {
         <Ratings.Widget />
         <Ratings.Widget />
       </Ratings>
+      <div className="rating-id">{ratingId}</div>
     </div>
   );
 };
