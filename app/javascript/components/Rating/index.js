@@ -4,8 +4,22 @@ import './styles.scss';
 
 import Ratings from 'react-ratings-declarative';
 
-const Rating = ({ id, quality }) => {
-  const [rating, setRating] = useState(0);
+const ratingsMapping = {
+  no_stars: 0,
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5
+};
+
+const Rating = ({ id, quality, ratings }) => {
+  const [rating, setRating] = useState(() =>{
+    const existing = ratings.find(r => r.quality === quality);
+    if (existing)
+      return ratingsMapping[existing['stars']];
+    return 0;
+  });
 
   return (
     <div key={`${id}-${quality}`} className="stars-container">
@@ -30,7 +44,8 @@ const Rating = ({ id, quality }) => {
 Rating.displayName = "Rating";
 Rating.propTypes = {
   id: PropTypes.string,
-  quality: PropTypes.string
+  quality: PropTypes.string,
+  ratings: PropTypes.array
 };
 
 export default Rating;

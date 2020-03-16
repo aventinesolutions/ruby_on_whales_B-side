@@ -17,7 +17,7 @@ const Whiskeys = ({ query }) =>
 Whiskeys.displayName = 'Whiskeys';
 Whiskeys.propTypes = {
   children: PropTypes.node,
-  query: PropTypes.string
+  query: PropTypes.object
 };
 
 export default Whiskeys;
