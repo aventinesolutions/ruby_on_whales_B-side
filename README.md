@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.16
+Version 0.1.18
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -47,11 +47,18 @@ Running database tasks with `rake`
 ```
 
 ## Testing
-Testing is done with RSpec
+Backend testing is done with RSpec
 ```shell
 % docker-compose run runner bundle exec rspec
 ```
 Factories are found in `./spec/factories`.
+
+Frontend testing is done with Jest and Enzyme
+```shell
+% yarn test
+# to watch tests
+% yarn test-watch
+```
 
 ## Linting
 Ruby linting is done with Rubocop :cop:
