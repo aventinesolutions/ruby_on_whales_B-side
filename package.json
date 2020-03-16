@@ -9,6 +9,11 @@
     "test-watch": "jest --watch"
   },
   "jest": {
+    "verbose": true,
+    "transformIgnorePatterns": ["<rootDiv>/node_modules/"],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
     "roots": [
       "spec/javascript"
     ]
