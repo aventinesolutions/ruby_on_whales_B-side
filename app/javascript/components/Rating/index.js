@@ -11,7 +11,12 @@ const Rating = ({ id, quality }) => {
     <div key={`${id}-${quality}`} className="stars-container">
       <h3>{quality}</h3>
       <h4>Rating: {rating}</h4>
-      <Ratings rating={rating} changeRating={(rating) => setRating(rating)}>
+      <Ratings
+        rating={rating}
+        changeRating={(rating) => setRating(rating)}
+        widgetDimensions='1em'
+        widgetSpacings='0'
+      >
         <Ratings.Widget />
         <Ratings.Widget />
         <Ratings.Widget />

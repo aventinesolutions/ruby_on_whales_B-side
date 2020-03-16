@@ -1,5 +1,6 @@
 .ratings-container {
   display: flex;
+  padding-top: 1em;
 }
 
 .stars-container {
@@ -10,6 +11,7 @@
   border-width: 1px;
   border-color: black;
   padding-top: 0;
+  padding-right: 1em;
   &:last-child {
     border-style: none;
   }
