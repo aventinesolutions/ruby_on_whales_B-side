@@ -5,3 +5,8 @@
 :root {
     font-family: 'Fira Sans', sans-serif;
 }
+
+.copyright {
+    text-align: right;
+    padding: 2em;
+}
