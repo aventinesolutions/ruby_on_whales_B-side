@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -28,7 +28,7 @@ const Rating = ({ id, quality, ratings, account_id }) => {
   });
   const query = () => {
     return gql`
-      mutation input($rating: String!){
+      mutation variables($rating: String!){
         rateWhiskey(accountId: "${account_id}",
           whiskeyId: "${id}",
           quality: "${quality}",
@@ -45,6 +45,8 @@ const Rating = ({ id, quality, ratings, account_id }) => {
     ignoreResults: true
   });
 
+  useEffect(function() { rateWhiskey(); });
+
   return (
     <div key={`${id}-${quality}`} className="stars-container">
       <h3>{quality}</h3>
@@ -53,7 +55,6 @@ const Rating = ({ id, quality, ratings, account_id }) => {
         rating={rating}
         changeRating={(rating) => {
           setRating(rating);
-          rateWhiskey();
         }}
         widgetDimensions='1em'
         widgetSpacings='0'
