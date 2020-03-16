@@ -26,26 +26,37 @@ const Rating = ({ id, quality, ratings, account_id }) => {
       return ratingsMapping[existing['stars']];
     return 0;
   });
-  const query = () => {
-    return gql`
-      mutation variables($rating: String!){
-        rateWhiskey(accountId: "${account_id}",
-          whiskeyId: "${id}",
-          quality: "${quality}",
-          stars: $rating) {
-          id
-          quality
-          stars
-        }
+
+  const [rateWhiskey] = useMutation(gql`
+    mutation variables(
+      $accountId: String!,
+      $id: String!,
+      $quality: String!,
+      $stars: String!){
+      rateWhiskey(
+        accountId: $accountId,
+        whiskeyId: $id,
+        quality: $quality,
+        stars: $stars
+      ) {
+        id
+        quality
+        stars
       }
-    `;
-  };
-  const [rateWhiskey] = useMutation(query(), {
-    variables: { rating: ratingToString(rating) },
+    }
+  `, {
+    variables: {
+      accountId: account_id,
+      id: id,
+      quality: quality,
+      stars: ratingToString(rating)
+    },
     ignoreResults: true
   });
 
-  useEffect(function() { rateWhiskey(); });
+  useEffect(function () {
+    rateWhiskey();
+  });
 
   return (
     <div key={`${id}-${quality}`} className="stars-container">
