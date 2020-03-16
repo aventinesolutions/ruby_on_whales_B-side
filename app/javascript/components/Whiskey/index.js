@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactImageAppear from 'react-image-appear';
 import Rating from '../Rating';
 import './styles.scss';
+import { AccountContext } from "../../context/AccountContext";
 
 const Whiskey = ({ id, title, description, price, photoUrl, ratings }) =>
   <div className='whiskey-container' key={id}>
@@ -17,13 +18,24 @@ const Whiskey = ({ id, title, description, price, photoUrl, ratings }) =>
       animation='bounceInDown'
       animationDuration='2s'
     />
-    <div className="ratings-container">
+    <AccountContext.Consumer>
       {
-        ['taste', 'color', 'smokiness'].map(quality =>
-          <Rating key={`${id}-${quality}`} id={id} quality={quality} ratings={ratings} />
-        )
+        ({ account_id }) =>
+          <div className="ratings-container">
+            {
+              ['taste', 'color', 'smokiness'].map(quality =>
+                <Rating
+                  key={`${id}-${quality}`}
+                  id={id}
+                  quality={quality}
+                  ratings={ratings}
+                  account_id={account_id}
+                />
+              )
+            }
+          </div>
       }
-    </div>
+    </AccountContext.Consumer>
   </div>
 ;
 
