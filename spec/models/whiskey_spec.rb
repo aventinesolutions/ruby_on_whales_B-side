@@ -39,4 +39,18 @@ RSpec.describe Whiskey, type: :model do
       expect(subject).not_to include(whiskeys[2])
     end
   end
+
+  describe '#minimum_5stars (scope)' do
+    let!(:whiskeys) do
+      create_list(:whiskey, 2).push(create(:whiskey, :with_ratings))
+    end
+
+    subject { Whiskey.minimum_5stars.to_a }
+
+    specify 'results' do
+      expect(subject).not_to include(whiskeys[0])
+      expect(subject).not_to include(whiskeys[1])
+      expect(subject).to include(whiskeys[2])
+    end
+  end
 end
