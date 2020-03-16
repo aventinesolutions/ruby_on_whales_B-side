@@ -50,12 +50,9 @@ const Rating = ({ id, quality, ratings, account_id }) => {
   return (
     <div key={`${id}-${quality}`} className="stars-container">
       <h3>{quality}</h3>
-      <h4>Rating: {rating}</h4>
       <Ratings
         rating={rating}
-        changeRating={(rating) => {
-          setRating(rating);
-        }}
+        changeRating={setRating}
         widgetDimensions='1em'
         widgetSpacings='0'
       >
