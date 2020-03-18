@@ -49,6 +49,7 @@ module.exports = function(api) {
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',
+      isTestEnv && "transform-es2015-modules-commonjs",
       '@babel/plugin-transform-destructuring',
       [
         '@babel/plugin-proposal-class-properties',
