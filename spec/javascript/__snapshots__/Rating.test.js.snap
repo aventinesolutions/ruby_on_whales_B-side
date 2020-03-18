@@ -220,7 +220,17 @@ exports[`Rating renders a Rating component 1`] = `
   }
 >
   <Rating
-    ratings={Array []}
+    account_id="random.uuid"
+    id="random.uuid"
+    quality="taste"
+    ratings={
+      Array [
+        Object {
+          "quality": "taste",
+          "stars": "three",
+        },
+      ]
+    }
   />
 </ApolloProvider>
 `;
