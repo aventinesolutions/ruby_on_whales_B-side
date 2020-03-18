@@ -8,7 +8,7 @@ import { shallowToJson } from 'enzyme-to-json';
 describe('Rating', () => {
   it('renders a Rating component', () => {
     const output = shallow(
-      <Rating />
+      <Rating ratings={[]} />
     );
     expect(shallowToJson(output)).toMatchSnapshot();
   });
