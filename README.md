@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.20
+Version 0.1.21
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -103,5 +103,4 @@ Accounts may *only* be added using the Rails console at this time:
 * Improve support for UUID's in GraphQL
 * For performance, dive into "N+1" queries, connection types and pagination with GraphQL
 * Define GraphQL enum types for "quality" and "stars"
-
-
+* Could be bi-lingual Dutch and English using I18n and React `<Trans/>`

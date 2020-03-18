@@ -1,14 +1,22 @@
 import React from 'react';
-import Rating from '../../app/javascript/components/Rating';
-import { create, update } from 'react-test-renderer';
 import './setupTests';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
+import { fake } from 'faker';
+
+import { MockedProvider } from '@apollo/react-testing';
+import Rating from '../../app/javascript/components/Rating';
 
 describe('Rating', () => {
   it('renders a Rating component', () => {
     const output = shallow(
-      <Rating />
+      <MockedProvider>
+        <Rating
+          id={fake("random.uuid")}
+          quality="taste"
+          ratings={[{ quality: 'taste', stars: 'three' }]}
+          account_id={fake("random.uuid")} />
+      </MockedProvider>
     );
     expect(shallowToJson(output)).toMatchSnapshot();
   });
