@@ -190,3 +190,5 @@ Accounts may *only* be added using the Rails console at this time:
 * Define GraphQL enum types for "quality" and "stars"
 * Could be bi-lingual Dutch and English using I18n and React `<Trans/>`
 * Use local Kubernetes instead of "docker compose" for orchestration.
+* Invalidate the appropriate Apollo cached queries after a Ratings mutation 
+  ([read this](https://medium.com/@martinseanhunt/how-to-invalidate-cached-data-in-apollo-and-handle-updating-paginated-queries-379e4b9e4698)).
