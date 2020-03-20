@@ -39,6 +39,52 @@ done
 % docker volume ls
 ```
 
+Install the secret keys for encrypted secrets needed for development and test:
+1) The development key goes in the file `config/credentials/development.key`
+2) The test key goes in the the file `config/credentials/test.key`
+
+Install Ruby/Rails dependencies
+```shell
+% winpty docker-compose run runner bundle install
+```
+It will take considerable time to download images and build the the development base image 
+the first time the `runner` is used.
+
+Install Frontend Node module dependencies
+```shell
+% winpty docker-compose run runner yarn
+```
+
+Update the Rails command scripts
+```shell
+% winpty docker-compose run runner app:update:bin
+```
+
+Create the databases (develop and test) and build the schemas
+```shell
+% winpty docker-compose run runner rake --trace db:create db:migrate db:test:prepare db:seed_fu
+```
+
+Seed the development database (with Whiskeys)
+```shell
+% winpty docker-compose run runner rake --trace db:seed_up
+```
+
+Do a "smoke test" of the Rails app by trying the console
+```shell
+% winpty docker-compose run runner rails console
+Loading development environment (Rails 6.0.2.1)
+irb(main):001:0> Whiskey.pluck(:id)
+=> ["a40e5da2-2726-4fdc-a0ec-2d8c906dca3c", "3b399839-50b4-4a3e-8537-f75d0831b105", "37445157-c684-4299-914d-97847cc00683", "f0ac1935-06de-4107-b2f4-731606747
+466", "a6508ae5-b5f7-4bc4-9a5b-12c9842cfb64"]
+```
+
+Create at least one account, remembering the password
+```shell
+% winpty docker-compose exec runner rails console
+# Account.create!(email: 'california@goldenbears.org', password: '<secret>', password_confirmation: '<secret>')
+```
+
 ## Running the system and managing containers
 
 Bring up the system
