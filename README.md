@@ -128,35 +128,35 @@ Stopping and removing containers
 ```
 Running database tasks with `rake`
 ```shell
-% docker exec -it ruby_on_whales_b-side_rails_1 bundle exec rake --trace db:migrate
+% winpty docker-compose exec runner rake --trace db:migrate
 ```
 
 ## Testing
 Backend testing is done with RSpec
 ```shell
-% docker-compose run runner bundle exec rspec
+% winpty docker-compose exec runner bundle exec rspec
 ```
 Factories are found in `./spec/factories`.
 
 Frontend testing is done with Jest and Enzyme
 ```shell
-% yarn test
+% winpty docker-compose exec runner yarn test
 # to watch tests
-% yarn test-watch
+% winpty docker-compose exec runner yarn test-watch
 ```
 
 ## Linting
 Ruby linting is done with Rubocop :cop:
 ```shell
-% docker-compose run runner bundle exec rubocop
+% winpty docker-compose exec runner bundle exec rubocop
 ```
 TODO's are found in `./.rubocop_todo.yml`.
 
 Javascript linting is done with ES Lint :cop:
 ```shell
-% winpty docker-compose run runndle yarn lint
+% winpty docker-compose exec runner yarn lint
 # try automatic fixes
-% winpty docker-compose run runndle yarn lint-fix
+% winpty docker-compose exec runner yarn lint-fix
 ```
 ES lint configuration is in './eslintrc'
 
@@ -164,7 +164,7 @@ ES lint configuration is in './eslintrc'
 ## Seed Whiskeys
 This seeds the Whiskey model including upload photos to Backblaze: 
 ```shell
-% docker-compose run runner rake --trace db:seed_fu
+% winpty docker-compose exec runner rake --trace db:seed_fu
 ```
 
 ## Add Accounts
@@ -192,3 +192,4 @@ Accounts may *only* be added using the Rails console at this time:
 * Use local Kubernetes instead of "docker compose" for orchestration.
 * Invalidate the appropriate Apollo cached queries after a Ratings mutation 
   ([read this](https://medium.com/@martinseanhunt/how-to-invalidate-cached-data-in-apollo-and-handle-updating-paginated-queries-379e4b9e4698)).
+* Need style linting
