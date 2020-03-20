@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.21
+Version 0.1.22
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -9,6 +9,19 @@ Validimir Dementyev's robust Docker/DockerCompose solution for Rails development
 
 * [Vladimir's Article](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
 * [Vladimir's Repository "Terraforming Rails"](https://github.com/evilmartians/terraforming-rails)
+
+## Coding Challenge
+Create a website where I can grade the whiskeys that I have had in the past.
+Per whiskey, I would like to define the title, a small description and give it 
+grades (1 to 5) for taste, color, and smokiness.  The data should be stored PostgreSQL.
+ 
+I want to be able to search whiskey based on the title, description and/or minimum grade
+ 
+Below requirements must be fulfilled:
+ 
+* Backend should be in Ruby on Rails.
+* Frontend should be written with React (preferably with React on Rails, so just one codebase)
+* Tests should be written in `rspec`.
 
 ## Why Docker for Development?
 * Guarantees to work cross platform
@@ -62,7 +75,7 @@ Update the Rails command scripts
 
 Create the databases (develop and test) and build the schemas
 ```shell
-% winpty docker-compose run runner rake --trace db:create db:migrate db:test:prepare db:seed_fu
+% winpty docker-compose run runner rake --trace db:create db:migrate db:test:prepare
 ```
 
 Seed the development database (with Whiskeys)
