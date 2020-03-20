@@ -20,12 +20,24 @@ Validimir Dementyev's robust Docker/DockerCompose solution for Rails development
 * Linux: install `docker` amd `docker-compose` via the package distribution
 
 Dockers are Linux images (not Windows).
+Note that `winpty` is only for Windows, leave it out on Linux and MacOS.
 
 ## Ruby Version
 2.6.4
 
 ## Rails Version
 6.0.2
+
+## Bootstrapping the Application
+Remove any leftover volumes from previous attempts, as they can get in a confused state:
+```shell
+% for v in bundle node_modules packs postgres rails_cache redis storage
+do
+  docker volume remove ruby_on_whales_b-side_"${v}"
+done
+# do we have a clean list?
+% docker volume ls
+```
 
 ## Running the system and managing containers
 
