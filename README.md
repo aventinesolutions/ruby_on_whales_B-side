@@ -85,6 +85,33 @@ Create at least one account, remembering the password
 # Account.create!(email: 'california@goldenbears.org', password: '<secret>', password_confirmation: '<secret>')
 ```
 
+Finally, allow `docker-compose` to run and orchestrate the devlopment containers:
+```shell
+% winpty docker-compose up
+```
+
+If everything succeeded, you should see containers running for Rails, Webpack(er), Postgres, Redis,
+Sidekiq all running:
+```shell
+% docker-compose ps
+              Name                             Command               State                        Ports
+----------------------------------------------------------------------------------------------------------------------------
+ruby_on_whales_b-side_app_1         irb                              Exit 0
+ruby_on_whales_b-side_backend_1     irb                              Up
+ruby_on_whales_b-side_postgres_1    docker-entrypoint.sh postgres    Up       0.0.0.0:5432->5432/tcp
+ruby_on_whales_b-side_rails_1       bundle exec rails server - ...   Up       0.0.0.0:3001->3001/tcp
+ruby_on_whales_b-side_redis_1       docker-entrypoint.sh redis ...   Up       0.0.0.0:32768->6379/tcp
+ruby_on_whales_b-side_runner_1      /bin/zsh                         Up       0.0.0.0:3000->3000/tcp, 0.0.0.0:3002->3002/tcp
+ruby_on_whales_b-side_sidekiq_1     bundle exec sidekiq -C con ...   Up
+ruby_on_whales_b-side_webpacker_1   ./bin/webpack-dev-server         Up       0.0.0.0:3035->3035/tcp
+```
+
+The `runner` can be used to run Rails, Rake and Yarn commands, even the Z-Shell:
+
+```shell
+% winpty docker-compose exec runner rails console
+```
+
 ## Running the system and managing containers
 
 Bring up the system
