@@ -85,7 +85,7 @@ Create at least one account, remembering the password
 # Account.create!(email: 'california@goldenbears.org', password: '<secret>', password_confirmation: '<secret>')
 ```
 
-Finally, allow `docker-compose` to run and orchestrate the devlopment containers:
+Finally, allow `docker-compose` to run and orchestrate the development containers:
 ```shell
 % winpty docker-compose up
 ```
@@ -189,3 +189,4 @@ Accounts may *only* be added using the Rails console at this time:
 * For performance, dive into "N+1" queries, connection types and pagination with GraphQL
 * Define GraphQL enum types for "quality" and "stars"
 * Could be bi-lingual Dutch and English using I18n and React `<Trans/>`
+* Use local Kubernetes instead of "docker compose" for orchestration.
