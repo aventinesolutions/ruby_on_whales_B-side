@@ -12,6 +12,7 @@ services:
         YARN_VERSION: '1.22.0'
         ESLINT_VERSION: '6.8.0'
         BUNDLER_VERSION: '2.1.4'
+        IDE_DEBUG_VERSION: '0.7.0'
     image: aventine-ruby-dev:1.0.1
     tmpfs:
       - /tmp
@@ -55,6 +56,13 @@ services:
     command: bundle exec rails server -b 0.0.0.0 --port 3001
     ports:
       - '3001:3001'
+
+  rails-ide-debug:
+    <<: *backend
+    command: bundle exec rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin/rails server -b 0.0.0.0 --port 4000
+    ports:
+      - '1234:1234'
+      - '4000:4000'
 
   sidekiq:
     <<: *backend
