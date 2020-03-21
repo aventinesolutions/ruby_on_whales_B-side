@@ -140,6 +140,14 @@ server PID file if necessary:
 % rm -fv ./tmp/pids/server.pid
 ```
 
+IDE Debugging may be done using "ruby remote debug" and the "rails-ide-debug" container.  It uses port 4000 for the
+server [http://localhost:4000](http://localhost:4000).  The other Rails container must be stopped and the `server.pid`
+file deleted before starting a debug session.
+
+The Jet Brains set-up for "ruby remote debug" looks something like this.
+
+![Jet Brains Ruby Remote Debug](./doc/images/screenshot-ide-debug.png)
+
 ## Running the system and managing containers
 
 Bring up the system
