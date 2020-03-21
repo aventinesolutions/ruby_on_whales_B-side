@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.22
+Version 0.1.23
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -123,6 +123,21 @@ The `runner` can be used to run Rails, Rake and Yarn commands, even the Z-Shell:
 
 ```shell
 % winpty docker-compose exec runner rails console
+```
+
+The Rails server is provided from the "rails" container on port 3001: [http://localhost:3001](http://localhost:3001])
+
+![Welcome page](./doc/images/screenshot.png)
+
+A server may also be run from the "runner" container, for instance to do "bye bugging"
+```shell
+% winpty docker-compose exec runner rails server -b 0.0.0.0 --port 3000
+```
+
+The "runner" container exposes ports 3000 and 3002.  You will have to shut down the other "rails" container and delete the
+server PID file if necessary:
+```shell
+% rm -fv ./tmp/pids/server.pid
 ```
 
 ## Running the system and managing containers
