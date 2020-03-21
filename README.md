@@ -125,7 +125,7 @@ The `runner` can be used to run Rails, Rake and Yarn commands, even the Z-Shell:
 % winpty docker-compose exec runner rails console
 ```
 
-The Rails server is provided from the "rails" container on port 3001: [http://localhost:3001](http://localhost:3001])
+The Rails server is provided from the "rails" container on port 3001: [http://localhost:3001](http://localhost:3001)
 
 ![Welcome page](./doc/images/screenshot.png)
 
