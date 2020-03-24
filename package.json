@@ -11,6 +11,7 @@
   },
   "jest": {
     "verbose": true,
+    "setupFilesAfterEnv": ["./spec/javascript/setupTests.js"],
     "transformIgnorePatterns": [
       "<rootDiv>/node_modules/"
     ],

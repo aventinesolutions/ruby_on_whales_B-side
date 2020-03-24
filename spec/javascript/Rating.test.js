@@ -1,5 +1,4 @@
 import React from 'react';
-import './setupTests';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import { fake } from 'faker';
