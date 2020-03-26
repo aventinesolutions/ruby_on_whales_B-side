@@ -1,21 +1,17 @@
-const { JSDOM } = require('jsdom');
-const jsdom = new JSDOM(`<!doctype html><html>
-   <body><div id="root" data-account-id="${fake('random.uuid')}"/></body>
-</html>`);
-const { window } = jsdom;
-global.window = window;
-global.document = window.document;
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
+import { fake } from 'faker';
 
 import Search from '../../app/javascript/components/Search';
+import { AccountContext } from '../../app/javascript/context/AccountContext';
 
 describe('Search', () => {
   it('renders a Search component', () => {
     const output = shallow(
-      <Search />
+      <AccountContext.Provider value={{ account_id: fake("random:uuid") }}>
+        <Search />
+      </AccountContext.Provider>
     );
     expect(shallowToJson(output)).toMatchSnapshot();
   });
