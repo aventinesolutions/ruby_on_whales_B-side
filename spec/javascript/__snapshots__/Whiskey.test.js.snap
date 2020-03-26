@@ -3,24 +3,24 @@
 exports[`Whiskey renders a Whiskey component 1`] = `
 <div
   className="whiskey-container"
-  key="random:uuid"
+  key="28846727-a4a4-4a8a-8a2c-2a5098b8a397"
 >
   <h2
     className="whiskey-title"
   >
-    commerce:productName
+    Licensed Wooden Keyboard
   </h2>
   <div
     className="whiskey-description"
   >
-    company:catchPhrase
+    Expanded methodical definition
   </div>
   <div
     className="whiskey-price"
   >
     Price: 
     <span>
-      commerce:price
+      €170,00
     </span>
   </div>
   <ReactImageAppear
@@ -35,7 +35,7 @@ exports[`Whiskey renders a Whiskey component 1`] = `
     placeholderClass=""
     placeholderStyle={Object {}}
     showLoader={true}
-    src="image:imageUrl"
+    src="http://lorempixel.com/640/480"
   />
   <ContextConsumer>
     <Component />
