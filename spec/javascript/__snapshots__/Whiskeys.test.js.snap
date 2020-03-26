@@ -33,7 +33,7 @@ exports[`Whiskeys renders a Whiskeys component 1`] = `
                           "value": Object {
                             "block": false,
                             "kind": "StringValue",
-                            "value": "random:uuid",
+                            "value": "c6fc5f72-6d50-4111-856e-c07eadbaef6b",
                           },
                         },
                         Object {
@@ -45,7 +45,7 @@ exports[`Whiskeys renders a Whiskeys component 1`] = `
                           "value": Object {
                             "block": false,
                             "kind": "StringValue",
-                            "value": "commerce:productName",
+                            "value": "handcrafted",
                           },
                         },
                         Object {
@@ -198,7 +198,7 @@ exports[`Whiskeys renders a Whiskeys component 1`] = `
       ],
       "kind": "Document",
       "loc": Object {
-        "end": 554,
+        "end": 295,
         "start": 0,
       },
     }
