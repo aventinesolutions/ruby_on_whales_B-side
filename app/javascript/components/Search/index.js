@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import Whiskeys from '../Whiskeys';
-import { AccountContext } from "../../context/AccountContext";
+import AccountContext from "../../context/AccountContext";
 import './styles.scss';
 
 const Search = () => {

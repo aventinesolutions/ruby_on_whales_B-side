@@ -4,7 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import { fake } from 'faker';
 
 import Search from '../../app/javascript/components/Search';
-import { AccountContext } from '../../app/javascript/context/AccountContext';
+import AccountContext from '../../app/javascript/context/AccountContext';
 
 describe('Search', () => {
   it('renders a Search component', () => {
