@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rating renders a Rating component 1`] = `
+exports[`shallow rendering Rating renders a Rating component 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
