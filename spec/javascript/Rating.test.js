@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
+import { act } from 'react-dom/test-utils';
 
 import { MockedProvider } from '@apollo/react-testing';
 import Rating from '../../app/javascript/components/Rating';
@@ -42,5 +43,9 @@ describe('reacts to changes of Ratings', () => {
 
   it('reacts to changes in Ratings', () => {
     expect(component.find('Widget').first().props().selectedRating).toEqual(2);
+    act(() => {
+      component.find('Widget').last().simulate('click');
+      expect(component.find('Widget').first().props().selectedRating).toEqual(3);
+    });
   });
 });
