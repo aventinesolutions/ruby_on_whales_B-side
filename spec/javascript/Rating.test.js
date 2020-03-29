@@ -26,10 +26,10 @@ describe('shallow rendering Rating', () => {
 });
 
 describe('reacts to changes of Ratings', () => {
-  let wrapper;
+  let component;
 
   beforeEach(() => {
-    wrapper = mount(
+    component = mount(
       <MockedProvider>
         <Rating
           id="0feeb520-8384-4985-b631-0127ddb56a47"
@@ -41,6 +41,6 @@ describe('reacts to changes of Ratings', () => {
   });
 
   it('reacts to changes in Ratings', () => {
-    expect(wrapper.find('Widget').first().props().selectedRating).toEqual(2);
+    expect(component.find('Widget').first().props().selectedRating).toEqual(2);
   });
 });
