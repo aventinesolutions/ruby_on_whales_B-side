@@ -12,7 +12,9 @@
   },
   "jest": {
     "verbose": true,
-    "setupFilesAfterEnv": ["./spec/javascript/setupTests.js"],
+    "setupFilesAfterEnv": [
+      "./spec/javascript/setupTests.js"
+    ],
     "transformIgnorePatterns": [
       "<rootDiv>/node_modules/"
     ],
@@ -69,6 +71,7 @@
     "jest-enzyme": "^7.1.2",
     "react-test-renderer": "^16.13.0",
     "regenerator-runtime": "^0.13.5",
+    "waait": "^1.0.5",
     "webpack": "^4.0.0",
     "webpack-dev-server": "^3.10.3"
   }
