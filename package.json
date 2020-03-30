@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint app/javascript spec/javascript",
     "lint:fix": "eslint --fix app/javascript spec/javascript",
+    "stylelint": "npx stylelint **/*.scss",
     "test": "NODE_ENV=test jest",
     "test-watch": "NODE_ENV=test jest --watch",
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
