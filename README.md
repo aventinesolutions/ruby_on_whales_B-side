@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.25
+Version 0.1.26
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -194,8 +194,13 @@ Javascript linting is done with ES Lint :cop:
 # try automatic fixes
 % winpty docker-compose exec runner yarn lint-fix
 ```
-ES lint configuration is in './eslintrc'
+ES lint configuration is in `./eslintrc`
 
+Style linting for SCSS is done with `stylelint`
+```shell
+% winpty docker-compose exec runner yarn stylelint
+```
+Style lint configuration can be found in `./stylelintrc.json`
 
 ## Seed Whiskeys
 This seeds the Whiskey model including upload photos to Backblaze: 
@@ -228,5 +233,4 @@ Accounts may *only* be added using the Rails console at this time:
 * Use local Kubernetes instead of "docker compose" for orchestration.
 * Invalidate the appropriate Apollo cached queries after a Ratings mutation 
   ([read this](https://medium.com/@martinseanhunt/how-to-invalidate-cached-data-in-apollo-and-handle-updating-paginated-queries-379e4b9e4698)).
-* Need style linting
 * Mocks for Apollo need some work (inconsistent results with Enzyme)
