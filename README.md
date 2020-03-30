@@ -1,5 +1,5 @@
 # Ruby on Whales: B Side
-Version 0.1.24
+Version 0.1.25
 
 Also the Coding Challenge for DAN.COM (via &Work)
 
@@ -229,3 +229,4 @@ Accounts may *only* be added using the Rails console at this time:
 * Invalidate the appropriate Apollo cached queries after a Ratings mutation 
   ([read this](https://medium.com/@martinseanhunt/how-to-invalidate-cached-data-in-apollo-and-handle-updating-paginated-queries-379e4b9e4698)).
 * Need style linting
+* Mocks for Apollo need some work (inconsistent results with Enzyme)
