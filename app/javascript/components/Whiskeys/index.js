@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import Whiskey from '../Whiskey';
 
-const Whiskeys = ({ query }) =>
-  <Query query={query}>
+const Whiskeys = ({ query, variables }) =>
+  <Query query={query} variables={variables}>
     {({ data, loading }) =>
       <>
         {loading ? 'loading ...' :
@@ -17,7 +17,8 @@ const Whiskeys = ({ query }) =>
 Whiskeys.displayName = 'Whiskeys';
 Whiskeys.propTypes = {
   children: PropTypes.node,
-  query: PropTypes.object
+  query: PropTypes.object,
+  variables: PropTypes.object
 };
 
 export default Whiskeys;

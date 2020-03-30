@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rating renders a Rating component 1`] = `
+exports[`shallow rendering Rating renders a Rating component 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -220,8 +220,8 @@ exports[`Rating renders a Rating component 1`] = `
   }
 >
   <Rating
-    account_id="random.uuid"
-    id="random.uuid"
+    account_id="7eac9c4e-90e1-428b-bda8-0203b75dd0ed"
+    id="0feeb520-8384-4985-b631-0127ddb56a47"
     quality="taste"
     ratings={
       Array [

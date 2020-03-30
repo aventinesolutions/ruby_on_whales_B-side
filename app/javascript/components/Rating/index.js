@@ -6,6 +6,25 @@ import './styles.scss';
 
 import Ratings from 'react-ratings-declarative';
 
+export const RATING_MUTATION_QUERY = gql`
+  mutation variables(
+    $accountId: String!,
+    $id: String!,
+    $quality: String!,
+    $stars: String!){
+    rateWhiskey(
+      accountId: $accountId,
+      whiskeyId: $id,
+      quality: $quality,
+      stars: $stars
+    ) {
+      id
+      quality
+      stars
+    }
+  }
+`;
+
 const ratingsMapping = {
   no_stars: 0,
   one: 1,
@@ -28,24 +47,7 @@ const Rating = ({ id, quality, ratings, account_id }) => {
   });
   const [ratingId, setRatingId] = useState(null);
 
-  const [rateWhiskey] = useMutation(gql`
-    mutation variables(
-      $accountId: String!,
-      $id: String!,
-      $quality: String!,
-      $stars: String!){
-      rateWhiskey(
-        accountId: $accountId,
-        whiskeyId: $id,
-        quality: $quality,
-        stars: $stars
-      ) {
-        id
-        quality
-        stars
-      }
-    }
-  `, {
+  const [rateWhiskey] = useMutation(RATING_MUTATION_QUERY, {
     variables: {
       accountId: account_id,
       id: id,

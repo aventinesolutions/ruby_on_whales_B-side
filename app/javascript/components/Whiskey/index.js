@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ReactImageAppear from 'react-image-appear';
 import Rating from '../Rating';
 import './styles.scss';
-import { AccountContext } from "../../context/AccountContext";
+import AccountContext from "../../context/AccountContext";
 
 const Whiskey = ({ id, title, description, price, photoUrl, ratings }) =>
   <div className='whiskey-container' key={id}>

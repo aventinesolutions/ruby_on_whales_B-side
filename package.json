@@ -1,16 +1,20 @@
 {
   "name": "ruby_on_whales_B_side",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "license": "EPL-2.0",
   "private": true,
   "scripts": {
     "lint": "eslint app/javascript spec/javascript",
     "lint:fix": "eslint --fix app/javascript spec/javascript",
     "test": "NODE_ENV=test jest",
-    "test-watch": "NODE_ENV=test jest --watch"
+    "test-watch": "NODE_ENV=test jest --watch",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "jest": {
     "verbose": true,
+    "setupFilesAfterEnv": [
+      "./spec/javascript/setupTests.js"
+    ],
     "transformIgnorePatterns": [
       "<rootDiv>/node_modules/"
     ],
@@ -67,6 +71,7 @@
     "jest-enzyme": "^7.1.2",
     "react-test-renderer": "^16.13.0",
     "regenerator-runtime": "^0.13.5",
+    "waait": "^1.0.5",
     "webpack": "^4.0.0",
     "webpack-dev-server": "^3.10.3"
   }
