@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint app/javascript spec/javascript",
     "lint:fix": "eslint --fix app/javascript spec/javascript",
+    "stylelint": "npx stylelint **/*.scss",
     "test": "NODE_ENV=test jest",
     "test-watch": "NODE_ENV=test jest --watch",
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
@@ -71,6 +72,9 @@
     "jest-enzyme": "^7.1.2",
     "react-test-renderer": "^16.13.0",
     "regenerator-runtime": "^0.13.5",
+    "stylelint": "^13.2.1",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-config-standard": "^20.0.0",
     "waait": "^1.0.5",
     "webpack": "^4.0.0",
     "webpack-dev-server": "^3.10.3"
