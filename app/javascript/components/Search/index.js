@@ -4,6 +4,26 @@ import Whiskeys from '../Whiskeys';
 import AccountContext from "../../context/AccountContext";
 import './styles.scss';
 
+export const SEARCH_WHISKEYS_QUERY = gql`
+    query variables($accountId: String!, $text: String!, $ratingsFilter: String!) 
+    {
+      search (filter: { accountId: $accountId, text: $text, ratingsFilter: $ratingsFilter })
+      {  
+        id
+        title
+        description
+        price
+        photoUrl
+        ratings {
+          id
+          accountId
+          quality
+          stars
+        }
+      }
+    }
+`;
+
 const Search = () => {
   const [text, setText] = useState("");
   const [ratingsFilter, setRatingsFilter] = useState("");
@@ -28,26 +48,9 @@ const Search = () => {
                 <option value="minimum_5stars">Minimum 5 Stars</option>
               </select>
             </div>
-            { text.length > 2 ? <Whiskeys query={gql`
-              {
-                 search(filter: {accountId: "${account_id}", 
-                                 text: "${text}",
-                                 ratingsFilter: "${ratingsFilter}"
-                                 }) {
-                  id
-                  title
-                  description
-                  price
-                  photoUrl
-                  ratings {
-                    id
-                    accountId
-                    quality
-                    stars
-                  }
-                }
-              }
-          `} /> : null
+            { text.length > 2 ? <Whiskeys
+              query={SEARCH_WHISKEYS_QUERY}
+              variables={{ accountId: account_id, text, ratingsFilter }} /> : null
             }
           </div>
       }
