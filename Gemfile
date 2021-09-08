@@ -33,7 +33,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails', '~> 2.4'
-  gem 'better_errors', '~> 2.6'
+  gem 'better_errors', '~> 2.8'
   gem 'graphiql-rails', '~> 1.7'
 end
 
